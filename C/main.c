@@ -168,8 +168,8 @@ bool rules() {
   printf("Computer is counting your attempts. Each every attempt you have to "
          "write combination.\nFor example:\nComputer writes ###, which means "
          "you must try some combination of three numbers.\n");
-  printf("So something like this: 1 or 98 or 1236 is invalid input and "
-         "computer say it to you. Only combinations like 123 or 506 are "
+  printf("So something like this: 1 or 9 8 or 1 2 3 6 is invalid input and "
+         "computer say it to you. Only combinations like 1 2 3 or 5 0 6 are "
          "correct input.\n\n");
   printf("C\tcorrect hint, this number is on this position\nO\tcode contains "
          "this number but in defferent position\nF\tthis number in not in code "
