@@ -4,10 +4,18 @@ import java.util.Scanner;
 public class Menu {
 
     private Scanner sc = new Scanner(System.in);
+
+    /**
+     * @brief constructon
+     */
     public Menu() {
 
     }
 
+    /**
+     * @brief game menu
+     * 
+     */
     public void gameMenu() {
         System.out.println("HIDE N CODE\nType number:");
         System.out.println("1\tStart game\n2\tHow to play\n3\tExit");
@@ -27,6 +35,10 @@ public class Menu {
         }
     }
 
+    /**
+     * @brief pre-game function
+     *
+     */
     public void preGame() {
         System.out.println("How big code would you like to guess?");
         int size = choice();
@@ -34,6 +46,12 @@ public class Menu {
         playGame(hash, size);
     }
 
+    /**
+     * @brief one game round (exactly full game logic)
+     *
+     * @param hash hash code combination
+     * @param size size of code and hash
+     */
     public void playGame(Number[] hash, int size) {
         int attempts = 1;
         boolean win = false;
@@ -77,11 +95,20 @@ public class Menu {
         if (choice() == 1) {
             preGame();
         } else {
-
             gameMenu();
         }
     }
 
+    /**
+     * @brief method checks attempt
+     *
+     * @param code  user attempt
+     * @param hash  hash code
+     * @param index actual position of number
+     * @param size  size of hash and code
+     * @return int 0 if numbers on same position are same, 1 if number is into hash
+     *         but on other position, 2 if number is not into hash
+     */
     public int contains(int[] code, Number[] hash, int index, int size) {
         if (code[index] == hash[index].getValue()) {
             hash[index].setKnown(true);
@@ -95,6 +122,14 @@ public class Menu {
         return 2;
     }
 
+    /**
+     * @brief checking if player wins
+     *
+     * @param hash hash combination
+     * @param size size of hash
+     * @return true when player wins
+     * @return false when user hasn't won yet
+     */
     public boolean check(Number[] hash, int size) {
         for (int i = 0; i < size; i++) {
             if (!hash[i].getKnown()) {
@@ -104,6 +139,12 @@ public class Menu {
         return true;
     }
 
+    /**
+     * @brief Get the Hash combination
+     *
+     * @param size size of hash
+     * @return hash code combination
+     */
     public Number[] getHash(int size) {
         Number[] hsh = new Number[size];
         for (int i = 0; i < size; i++) {
@@ -114,6 +155,10 @@ public class Menu {
         return hsh;
     }
 
+    /**
+     * @brief shows rules
+     *
+     */
     public void rules() {
         System.out.println(
                 "HOW TO PLAY\nComputer choose some combination of numnbers. Computer let you guess the right combination.");
@@ -128,6 +173,11 @@ public class Menu {
         gameMenu();
     }
 
+    /**
+     * @brief returns number of players choice in any menu
+     *
+     * @return int players choice
+     */
     public int choice() {
         System.out.print("Type choice: ");
         int choice = sc.nextInt();
