@@ -1,0 +1,1 @@
+Hi there, I'm creator of this game. I'm now working on C version so Java ver coms after C. Thanks for understanding, have fun, bye :)
